@@ -1,0 +1,73 @@
+@text-color: #3F3E3D;
+@border-color: #D2D2D2;
+@content-width: 860px;
+
+ // will create the illusion of anti-aliased text 
+ // create a shadow underneath the text with the same color and a one-pixel spread, 
+ // making the browser display a nice shade around the text.
+.antialiased (@color) {
+    color: @color;
+    text-shadow: @color 0 0 1px;
+}
+
+// will allow for cross-browser gradients
+.gradient4f (@p1, @c1, @p2, @c2, @p3, @c3, @p4, @c4) {
+    background: @c1;
+    background: -moz-linear-gradient(top,  @c1 @p1,  @c2 @p2,  @c3 @p3,  @c4 @p4);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@p1, @c1), color-stop(@p2, @c2), color-stop(@p3, @c3), color-stop(@p4, @c4));
+    background: -webkit-linear-gradient(top, @c1 @p1, @c2 @p2, @c3 @p3, @c4 @p4);
+    background: -o-linear-gradient(top, @c1 @p1, @c2 @p2, @c3 @p3, @c4 @p4);
+    background: -ms-linear-gradient(top, @c1 @p1, @c2 @p2, @c3 @p3, @c4 @p4);
+    background: linear-gradient(to bottom, @c1 @p1, @c2 @p2, @c3 @p3, @c4 @p4);
+}
+
+// style some global elements, such as for buttons and links. 
+// We want all elements to use the Helvetica or Arial fonts with the text color defined earlier:
+* {
+    font-family: sans-serif;
+    color: @text-color;
+}
+
+// white background with an image-based pattern. There are no margins and padding
+body {
+    background: white url('bg.png');
+    margin: 0;
+    padding: 0;
+}
+
+ // default style for all <input/> elements in the page
+input {
+    width: 236px;
+    height: 38px;
+    border: 1px solid @border-color;
+    padding: 0 10px;
+    outline: none;
+    font-size: 17px;
+ 
+    &:focus {
+        background: #FFFDF2;
+    }
+}
+
+// Submit buttons will use both the previously defined mixin and the border-radius to create nice effect
+input[type="submit"] {
+    height: 36px;
+    border: 1px solid #7BC574;
+    border-radius: 2px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 20px;
+    cursor: pointer;
+    .gradient4f(0%, #8CD585, 23%, #82CD7A, 86%, #55AD4C, 100%, #4FA945);
+}
+
+// The links should have a different color than normal text. We’ll also underline them on hover
+a {
+    text-decoration: none;
+    .antialiased(#58B84E);
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
