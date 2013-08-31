@@ -1,0 +1,29 @@
+<h1>Listing ribbitmsgs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>References</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ribbitmsgs.each do |ribbitmsg| %>
+      <tr>
+        <td><%= ribbitmsg.content %></td>
+        <td><%= ribbitmsg.references %></td>
+        <td><%= link_to 'Show', ribbitmsg %></td>
+        <td><%= link_to 'Edit', edit_ribbitmsg_path(ribbitmsg) %></td>
+        <td><%= link_to 'Destroy', ribbitmsg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ribbitmsg', new_ribbitmsg_path %>

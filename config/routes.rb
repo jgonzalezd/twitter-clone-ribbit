@@ -1,4 +1,6 @@
 Ribbit::Application.routes.draw do
+  resources :ribbitmsgs
+
   get "sessions/new"
   post "sessions/create"
   get "sessions/destroy"

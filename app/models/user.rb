@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :ribbitmsgs
   has_secure_password
   attr_accessible :avatar_url, :email, :password, :password_confirmation, :username
   

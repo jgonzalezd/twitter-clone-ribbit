@@ -21,6 +21,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 group :develpment do
   gem 'debugger'
+  gem 'hirb'
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

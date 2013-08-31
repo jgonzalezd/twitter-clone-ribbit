@@ -1,0 +1,22 @@
+<%= form_for(@ribbitmsg) do |f| %>
+  <% if @ribbitmsg.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ribbitmsg.errors.count, "error") %> prohibited this ribbitmsg from being saved:</h2>
+
+      <ul>
+      <% @ribbitmsg.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
