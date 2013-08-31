@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Ribbit</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<header>
-	<div class="wrapper">
-		<%= image_tag "logo.png" %>
-		<span>Twitter Clone</span>
-	</div>
-</header>
-<div id="content" >
-	<div class="wrapper">
-		<% flash.each do |name, msg| %>
-			<%= content_tag :div, :msg, class: "flash #{name}"%>
-		<% end %>
-		<%= yield %>
-	</div>
-</div>
-<footer>
-	<div class="wrapper">
-		A Twitter clone
-	</div>
-</footer>
-</body>
+	<head>
+		<title>Ribbit</title>
+		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<header>
+			<div class="wrapper">
+				<%= image_tag "logo.png" %>
+				<span>Twitter Clone</span>
+				<% if current_user %>
+					<%= link_to "Log Out", sessions_destroy_path %>
+				<% else %>
+					<%= form_tag sessions_create_path do %>
+						<%= text_field_tag :username, nil, placeholder: "username", class: "headerinput"%>
+						<%= password_field_tag :password, nil,  placeholder: "password" , class: "headerinput"%>
+						<%= submit_tag "Log In", class: "headerinput" %>
+					<% end %>
+				<% end %>
+			</div>
+		</header>
+		<div id="content" >
+			<div class="wrapper">
+				<% flash.each do |name, msg| %>
+				<%= content_tag :div, msg, class: "flash #{name}"%>
+				<% end %>
+				<%= yield %>
+			</div>
+		</div>
+		<footer>
+			<div class="wrapper">
+				A Twitter clone
+			</div>
+		</footer>
+	</body>
 </html>

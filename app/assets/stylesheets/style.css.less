@@ -43,10 +43,16 @@ input {
     padding: 0 10px;
     outline: none;
     font-size: 17px;
+    &.headerinput{
+      width: 155px;
+      
+    }
  
     &:focus {
         background: #FFFDF2;
     }
+    
+    
 }
 
 // Submit buttons will use both the previously defined mixin and the border-radius to create nice effect
@@ -95,6 +101,9 @@ header {
       display: inline;
       input {
         margin: 0 0 0 14px;
+        &.headerinput{
+          margin: 0 0 0 5px;
+        }
       }
     }
     #btnLogOut {
