@@ -9,18 +9,9 @@ class RibbitmsgsController < ApplicationController
     @ribbitmsg = Ribbitmsg.new 
   end
 
-  # GET /ribbitmsgs/1
-  # GET /ribbitmsgs/1.json
-  def show
-  end
-
   # GET /ribbitmsgs/new
   def new
     @ribbitmsg = Ribbitmsg.new
-  end
-
-  # GET /ribbitmsgs/1/edit
-  def edit
   end
 
   # POST /ribbitmsgs
