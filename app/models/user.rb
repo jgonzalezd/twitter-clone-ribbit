@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  #attr_accessible :email
+  attr_accessible :avatar_url, :email, :password, :password_confirmation, :username
   
   before_validation :prep_email
   before_save :create_avatar_url
