@@ -4,7 +4,9 @@ class RibbitmsgsController < ApplicationController
   # GET /ribbitmsgs
   # GET /ribbitmsgs.json
   def index
-    @ribbitmsgs = Ribbitmsg.all
+    debugger
+    @ribbitmsgs = Ribbitmsg.all include: :user
+    @ribbitmsg = Ribbitmsg.new 
   end
 
   # GET /ribbitmsgs/1
@@ -29,8 +31,7 @@ class RibbitmsgsController < ApplicationController
     @ribbitmsg.user = user
     respond_to do |format|
       if @ribbitmsg.save
-        format.html { redirect_to @ribbitmsg, notice: 'Ribbitmsg was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @ribbitmsg }
+        format.html { redirect_to ribbitmsgs_path, notice: 'Ribbitmsg was successfully created.' }
       else
         format.html { render action: 'new' }
         format.json { render json: @ribbitmsg.errors, status: :unprocessable_entity }
