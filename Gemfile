@@ -21,8 +21,6 @@ gem 'coffee-rails', '~> 4.0.0'
 
 group :develpment, :test do
   gem 'debugger'
-  gem 'hirb'
-  gem 'sqlite3-ruby', :require => 'sqlite3'
   gem "therubyracer"
 end
 
