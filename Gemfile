@@ -5,13 +5,13 @@ gem 'rails', '4.0.0'
 gem "protected_attributes", "~> 1.0.3"
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 
 # Use SCSS for stylesheets
 #gem 'sass-rails', '~> 4.0.0'
 #Use Less for stylesheets
 gem "less-rails", "~> 2.3.3"
-gem "therubyracer"
+
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -22,6 +22,13 @@ gem 'coffee-rails', '~> 4.0.0'
 group :develpment do
   gem 'debugger'
   gem 'hirb'
+  gem 'sqlite3'
+  gem "therubyracer"
+end
+
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
