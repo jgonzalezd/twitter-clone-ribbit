@@ -12,6 +12,9 @@
 				<%= link_to(image_tag("logo.png", :alt => "logo", :title => "Home"), ribbitmsgs_path) %> 
 				<span>Twitter Clone</span>
 				<% if current_user %>
+					<%= link_to "Public Ribbits", ribbitmsgs_path %> | 
+					<%= link_to "Public Profiles", users_path %> | 
+					<%= link_to "My Profile", current_user %> | 
 					<%= link_to "Log Out", sessions_destroy_path %>
 				<% else %>
 					<%= form_tag sessions_create_path do %>

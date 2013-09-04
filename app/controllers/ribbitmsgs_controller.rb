@@ -59,7 +59,6 @@ class RibbitmsgsController < ApplicationController
     def set_ribbitmsg
       @ribbitmsg = Ribbitmsg.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def ribbitmsg_params
       params.require(:ribbitmsg).permit(:content, :references)

@@ -18,3 +18,4 @@ class RelationshipsController < ApplicationController
     redirect_to user_path params[:id]
   end
 end
+  

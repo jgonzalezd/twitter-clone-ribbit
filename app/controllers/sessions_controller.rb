@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to user, notice: "Logged in!" 
     else
       flash[:error] = "Incorrect User/Password combination"
-      redirect_to rooturl
+      redirect_to root_url
     end
   end
 
