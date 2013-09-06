@@ -11,7 +11,7 @@ gem "protected_attributes", "~> 1.0.3"
 #gem 'sass-rails', '~> 4.0.0'
 #Use Less for stylesheets
 gem "less-rails", "~> 2.3.3"
-gem "sqlite3"
+
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -22,12 +22,14 @@ gem 'coffee-rails', '~> 4.0.0'
 group :develpment, :test do
   gem 'debugger'
   gem "therubyracer"
+  gem 'sqlite3'
 end
 
-# group :production do
-  # gem 'pg', '0.15.1'
-  # gem 'rails_12factor', '0.0.2'
-# end
+
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
+end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
